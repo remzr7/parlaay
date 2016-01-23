@@ -7,14 +7,20 @@ cli = Client(base_url='tcp://45.79.170.248:2375')
 def build():
     print("building...")
 
-def main():
-    for arg in sys.argv[0]:
-        if arg is "info":
-            ##
-            continue
-        elif arg is "build":
-            build()
 
+def info():
+    print(cli.info())
+
+
+def main():
+    arg = sys.argv[1]
+    print(arg)
+    if arg == "info":
+        info()
+    elif arg == "build":
+        build()
+    else:
+        print("Command not found")
     print('execed')
     return 0
 
